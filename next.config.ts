@@ -1,7 +1,14 @@
-import type { NextConfig } from "next";
+import nextIntlPlugin from 'next-intl/plugin';
+import type { NextConfig } from 'next';
+
+const withNextIntl = nextIntlPlugin({
+  // puoi anche lasciare vuoto
+  // es: localePrefix: 'always', locales: ['en', 'it'], etc.
+});
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export',
+  trailingSlash: true,
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);
