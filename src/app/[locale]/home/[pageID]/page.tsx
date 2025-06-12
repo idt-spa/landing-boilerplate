@@ -1,6 +1,5 @@
 import DynamicPageClient from "@/components/organisms/DynamicPageClient";
 
-
 export function generateStaticParams() {
   return [
     { locale: "en", pageID: "1" },
@@ -9,6 +8,12 @@ export function generateStaticParams() {
   ];
 }
 
-export default function PageID({ params }: { params: { pageID: string; locale: string } }) {
-  return <DynamicPageClient pageID={params.pageID} />;
+type Props = {
+  params: Promise<{ pageID: string; locale: string }>;
+};
+
+export default async function PageID({ params }: Props) {
+  const { pageID } = await params;
+
+  return <DynamicPageClient pageID={pageID} />;
 }
