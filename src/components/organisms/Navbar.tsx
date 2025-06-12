@@ -1,13 +1,18 @@
-"use client";
+'use client'
+
+
 import Image from "next/image";
 import Link from "next/link";
 import { ToggleSwitch } from "@/components/molecules/ToggleSwitch";
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import DropdownSelect from "@/components/molecules/DropdownSelect";
+import { useRouter, useParams } from "next/navigation";
+
 
 export const Navbar = () => {
+  const router = useRouter();
   const params = useParams();
-  const locale = params?.locale as string; // 👈 "en", "it", ecc.
+  const locale = params?.locale as string;
 
   const [isDark, setIsDark] = useState(false);
 
@@ -27,6 +32,20 @@ export const Navbar = () => {
     document.documentElement.classList.toggle("dark", !isDark);
     localStorage.setItem("theme", nextTheme);
     setIsDark(!isDark);
+  };
+
+  const handleLanguageSelect = (lang: string) => {
+    const currentPath = window.location.pathname;
+    const pathSegments = currentPath.split("/");
+
+    if (["it", "en"].includes(pathSegments[1])) {
+      pathSegments[1] = lang.toLowerCase();
+    } else {
+      pathSegments.splice(1, 0, lang);
+    }
+
+    const newPath = pathSegments.join("/");
+    router.push(newPath);
   };
 
   return (
@@ -53,7 +72,16 @@ export const Navbar = () => {
               Home
             </Link>
           </div>
-          <ToggleSwitch checked={isDark} onChange={toggleTheme} />
+          <div className="flex items-center">
+            <DropdownSelect
+              label={locale.toUpperCase()} // Mostra la lingua corrente
+              items={["IT", "EN",]}
+              onItemSelect={handleLanguageSelect}
+            />
+            <ToggleSwitch checked={isDark} onChange={toggleTheme} />
+
+          </div>
+
         </div>
       </div>
     </header>
