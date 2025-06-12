@@ -1,23 +1,26 @@
-"use client";
-import { ReactNode, useEffect, useState } from "react";
-import { useParams } from "next/navigation";
-import { NextIntlClientProvider } from "next-intl";
+import { ReactNode } from "react";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { Navbar } from "@/components/organisms/Navbar";
+import { NextIntlClientProvider } from "next-intl";
 
-export default function LocaleLayout({ children }: { children: ReactNode }) {
-  const { locale } = useParams() as { locale: string };
-  const [messages, setMessages] = useState<Record<string, string> | null>(null);
+type Props = {
+  children: ReactNode;
+  params: Promise<{ locale: string }>; // params è una Promise!
+};
 
-  useEffect(() => {
-    import(`@/messages/${locale}.json`)
-      .then((mod) => setMessages(mod.default))
-      .catch(() => setMessages(null));
-  }, [locale]);
+export default async function LocaleLayout({ children, params }: Props) {
+  const { locale } = await params;
 
-  if (!messages) return null; // oppure uno spinner/caricamento
+  let messages;
+  try {
+    messages = await getMessages({ locale });
+  } catch {
+    notFound();
+  }
 
   return (
-    <NextIntlClientProvider key={locale} locale={locale} messages={messages}>
+    <NextIntlClientProvider locale={locale} messages={messages}>
       <div className="relative flex min-h-screen flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>
