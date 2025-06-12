@@ -15,12 +15,14 @@ export default async function LocaleLayout({ children, params }: Props) {
   let messages;
   try {
     messages = await getMessages({ locale });
+    console.log("Loaded messages for locale:", locale, messages);
+
   } catch {
     notFound();
   }
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
+    <NextIntlClientProvider key={locale} locale={locale} messages={messages}>
       <div className="relative flex min-h-screen flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>

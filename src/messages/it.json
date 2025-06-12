@@ -2,5 +2,8 @@
   "home": {
     "title": "Benvenuto",
     "description": "Questo è un sito statico multilingua."
+  },
+  "pageID": {
+    "title": "page ID IT"
   }
 }

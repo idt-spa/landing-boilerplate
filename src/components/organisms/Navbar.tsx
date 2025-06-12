@@ -1,13 +1,11 @@
 'use client'
 
-
 import Image from "next/image";
 import Link from "next/link";
 import { ToggleSwitch } from "@/components/molecules/ToggleSwitch";
 import { useEffect, useState } from "react";
 import DropdownSelect from "@/components/molecules/DropdownSelect";
 import { useRouter, useParams } from "next/navigation";
-
 
 export const Navbar = () => {
   const router = useRouter();
@@ -45,8 +43,10 @@ export const Navbar = () => {
     }
 
     const newPath = pathSegments.join("/");
+    console.log("Navigating to:", newPath);
     router.push(newPath);
   };
+  console.log("Current locale in Navbar:", locale);
 
   return (
     <header className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">

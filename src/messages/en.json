@@ -2,5 +2,8 @@
   "home": {
     "title": "Welcome BRO",
     "description": "This is a static multilingual site."
+  },
+  "pageID": {
+    "title": "page ID EN"
   }
 }
