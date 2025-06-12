@@ -1,6 +1,9 @@
 import React from "react";
 
-export const ToggleSwitch = ({ checked, onChange }: {
+export const ToggleSwitch = ({
+  checked,
+  onChange,
+}: {
   checked?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) => (

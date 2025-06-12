@@ -1,5 +1,5 @@
-import nextIntlPlugin from 'next-intl/plugin';
-import type { NextConfig } from 'next';
+import nextIntlPlugin from "next-intl/plugin";
+import type { NextConfig } from "next";
 
 const withNextIntl = nextIntlPlugin({
   // puoi anche lasciare vuoto
@@ -7,7 +7,7 @@ const withNextIntl = nextIntlPlugin({
 });
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  output: "export",
   trailingSlash: true,
 };
 

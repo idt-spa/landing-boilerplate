@@ -32,7 +32,7 @@ export default async function RootLayout(props: {
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const language = props.params.locale || 'en'; // ✅ corretto
+  const language = props.params.locale || "en"; // ✅ corretto
 
   let messages;
   try {

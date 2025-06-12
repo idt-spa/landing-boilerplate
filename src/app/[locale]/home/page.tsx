@@ -1,10 +1,9 @@
-'use client'
+"use client";
 
-import { useTranslations } from 'next-intl';
+import { useTranslations } from "next-intl";
 
 export default function HomePage() {
-  const t = useTranslations('home');
-
+  const t = useTranslations("home");
 
   return (
     <div className="w-full h-screen flex justify-center items-center">
