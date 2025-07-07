@@ -1,3 +1,4 @@
+import { ScrollHandler } from "@/components/utils/ScrollHandler";
 
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "it" }];
@@ -9,7 +10,8 @@ export default function HomePage() {
 
   return (
     <>
-    <HomePageContent />
+      <ScrollHandler />
+      <HomePageContent />
     </>
   );
 }
