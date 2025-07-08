@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { Navbar } from "@/components/organisms/Navbar";
 import { NextIntlClientProvider } from "next-intl";
+import NavbarTypeOne from "@/components/organisms/navbars/Navbar-type-one";
 
 type Props = {
   children: ReactNode;
@@ -24,7 +24,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <NextIntlClientProvider key={locale} locale={locale} messages={messages}>
       <div className="relative flex min-h-screen flex-col">
-        <Navbar />
+        <NavbarTypeOne />
         <main className="flex-1">{children}</main>
       </div>
     </NextIntlClientProvider>
