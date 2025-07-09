@@ -1,4 +1,4 @@
-export default function SectionTypeThree() {
+export default function SectionTypeSteps() {
   return (
     <>
       <section className="max-w-[1440px] mx-auto pb-10 pt-12 px-5 sm:px-8 font-['Space_Grotesk']">

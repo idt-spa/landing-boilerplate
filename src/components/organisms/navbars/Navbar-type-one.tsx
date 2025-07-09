@@ -1,86 +1,103 @@
-import Link from 'next/link';
+"use client";
 
-const navLinks = [
-  { name: 'Heros', href: '/en/heros', active: true },
-  { name: 'Sections', href: '#' },
-  { name: 'Footers', href: '#' },
-];
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { Menu } from "lucide-react";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 
 export default function NavbarTypeOne() {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false); // 👈 stato per il drawer
+
+  const navLinks = [
+    { name: "Heros", href: "/en/templates/heros/" },
+    { name: "Sections", href: "/en/templates/sections/" },
+    { name: "Footers", href: "/en/templates/footers/" },
+  ].map((link) => ({
+    ...link,
+    active: pathname === link.href,
+  }));
+
   return (
     <>
-      <nav className="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
-        <div className="flex flex-wrap items-center justify-between max-w-[1440px] mx-auto px-8 lg-px:16">
-          <Link href="#" className="flex items-center">
-            <img
-              src="https://www.svgrepo.com/show/499962/music.svg"
-              className="h-6 mr-3 sm:h-9"
-              alt="Landwind Logo"
-            />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              Landwind
-            </span>
+      <nav className="sticky top-0 bg-white border-gray-200 py-2.5 dark:bg-gray-900 z-50">
+        <div className="flex flex-wrap items-center justify-between max-w-[1440px] mx-auto px-8 lg:px-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center">
+            <Image src="/logo.png" alt="logo" width={50} height={50} />
           </Link>
 
-          <div className="flex items-center lg:order-2">
-            <a
-              href="https://themesberg.com/product/tailwind-css/landing-page"
-              className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
-            >
-              Download
-            </a>
-
-            <button
-              data-collapse-toggle="mobile-menu-2"
-              type="button"
-              className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              aria-controls="mobile-menu-2"
-              aria-expanded="true"
-            >
-              <span className="sr-only">Open main menu</span>
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fillRule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <svg
-                className="hidden w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
+          {/* Mobile Drawer Trigger */}
+          <div className="lg:hidden">
+            <Drawer direction={"left"} open={open} onOpenChange={setOpen}>
+              <DrawerTrigger asChild>
+                <button
+                  className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                >
+                  <Menu className="h-6 w-6" />
+                </button>
+              </DrawerTrigger>
+              <DrawerContent>
+                <DrawerHeader>
+                  <DrawerTitle className="text-xl">Menu</DrawerTitle>
+                </DrawerHeader>
+                <nav className="p-4 space-y-4">
+                  {navLinks.map((link, idx) => (
+                    <Link
+                      key={idx}
+                      href={link.href}
+                      className={`block text-lg py-2 px-4 rounded ${
+                        link.active
+                          ? "text-purple-700 font-bold"
+                          : "text-zinc-800 dark:text-gray-300"
+                      }`}
+                      onClick={() => setOpen(false)} // 👈 chiude il drawer
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                  <Link
+                    href="https://themesberg.com/product/tailwind-css/landing-page"
+                    className="block text-white bg-zinc-800 hover:bg-white hover:text-zinc-800 hover:border focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
+                    onClick={() => setOpen(false)} // 👈 chiude anche qui
+                  >
+                    Download
+                  </Link>
+                </nav>
+              </DrawerContent>
+            </Drawer>
           </div>
 
-          <div
-            className="items-center justify-between w-full lg:flex lg:w-auto lg:order-1"
-            id="mobile-menu-2"
-          >
-            <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-              {navLinks.map((link, idx) => (
-                <li key={idx}>
-                  <Link
-                    href={link.href}
-                    className={`block py-2 pl-3 pr-4 rounded lg:p-0
-                      ${
-                        link.active
-                          ? "text-white bg-purple-700 lg:bg-transparent lg:text-purple-700 dark:text-white"
-                          : "text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-                      }`}
-                    aria-current={link.active ? "page" : undefined}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* Desktop nav */}
+          <div className="hidden lg:flex items-center space-x-8">
+            {navLinks.map((link, idx) => (
+              <Link
+                key={idx}
+                href={link.href}
+                className={`py-2 px-4 rounded ${
+                  link.active
+                    ? "font-bold"
+                    : "text-zinc-800 hover:text-blue-500"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+
+            <Link
+              href="https://themesberg.com/product/tailwind-css/landing-page"
+              className="text-white bg-zinc-800 hover:bg-white hover:text-zinc-800 border focus:ring-4 font-medium rounded-lg text-sm px-4 py-2 focus:outline-none"
+            >
+              Download
+            </Link>
           </div>
         </div>
       </nav>
