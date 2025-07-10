@@ -2,13 +2,6 @@
 
 import { BarChart3, Code, ShieldCheck, Cpu, Scaling, AppWindow } from "lucide-react";
 
-type Feature = {
-  id: string;
-  icon: React.ElementType;
-  title: string;
-  description: string;
-};
-
 const content = {
   title: "Tutto ciò di cui hai bisogno, e anche di più",
   subtitle: "La nostra piattaforma è progettata per essere potente, flessibile e sicura. Scopri le funzionalità che ci rendono la scelta ideale per il tuo progetto.",
