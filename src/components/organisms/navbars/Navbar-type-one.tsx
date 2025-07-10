@@ -123,7 +123,7 @@ export const NavbarTypeOne = () => {
                 className={`py-2 px-4 rounded ${
                   link.active
                     ? "font-bold"
-                    : "text-zinc-800 hover:text-blue-500"
+                    : "text-zinc-800 dark:text-slate-50 hover:text-blue-500"
                 }`}
               >
                 {link.name}

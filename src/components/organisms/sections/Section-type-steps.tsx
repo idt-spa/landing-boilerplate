@@ -72,7 +72,7 @@ export const SectionTypeSteps = () => {
         <h1 className="px-2 bg-[#b9ff66] rounded-lg text-black text-[40px] font-medium">
           {content.title}
         </h1>
-        <p className="text-black text-lg font-normal">{content.subtitle}</p>
+        <p className="text-black text-lg font-normal dark:text-slate-50">{content.subtitle}</p>
       </div>
 
       {/* Accordion */}

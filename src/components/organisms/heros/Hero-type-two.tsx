@@ -21,12 +21,12 @@ const heroText = {
 export const HeroTypeTwo = () => {
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center lg:pt-32">
-      <p className="mx-auto -mt-4 max-w-2xl text-lg tracking-tight text-slate-700 sm:mt-6">
+      <p className="mx-auto -mt-4 max-w-2xl text-lg tracking-tight text-slate-700 dark:text-slate-50 sm:mt-6">
         {heroText.welcome}{" "}
-        <span className="border-b border-dotted border-slate-300">{heroText.brand}</span>
+        <span className="border-b border-dotted border-slate-300 dark:text-slate-50">{heroText.brand}</span>
       </p>
 
-      <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
+      <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 dark:text-slate-50 sm:text-7xl">
         {heroText.heading.part1}{" "}
         <span className="relative inline-block whitespace-nowrap text-blue-600">
           <UnderlineSVG />
@@ -35,7 +35,7 @@ export const HeroTypeTwo = () => {
         {heroText.heading.part2}
       </h1>
 
-      <p className="mx-auto mt-9 max-w-2xl text-lg tracking-tight text-slate-700 sm:mt-6">
+      <p className="mx-auto mt-9 max-w-2xl text-lg tracking-tight text-slate-700 dark:text-slate-50 sm:mt-6">
         <span className="block">{heroText.description.line1}</span>
         <span className="block">{heroText.description.line2}</span>
       </p>
@@ -50,7 +50,7 @@ export const HeroTypeTwo = () => {
 
         <button
           type="button"
-          className="cursor-pointer group inline-flex items-center justify-center rounded-full ring-1 ring-slate-200 py-2 px-4 text-sm text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300 animate-fade-in-right"
+          className="cursor-pointer group inline-flex items-center justify-center rounded-full ring-1 ring-slate-200 py-2 px-4 text-sm text-slate-700 dark:text-slate-50 dark:hover:text-blue-500 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300 animate-fade-in-right"
         >
           <span>{heroText.buttons.mac}</span>
         </button>
