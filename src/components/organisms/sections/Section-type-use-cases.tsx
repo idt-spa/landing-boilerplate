@@ -137,7 +137,7 @@ const UseCaseItem = ({
   );
 };
 
-export const SectionUseCases = () => {
+export const SectionTypeUseCases = () => {
   return (
     <section id="use-cases" className="w-full bg-background py-24 sm:py-32">
       <div className="container mx-auto px-6">

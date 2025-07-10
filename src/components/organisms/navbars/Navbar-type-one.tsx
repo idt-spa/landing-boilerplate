@@ -15,12 +15,13 @@ import {
 
 export const NavbarTypeOne = () => {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false); // 👈 stato per il drawer
+  const [open, setOpen] = useState(false);
 
   const navLinks = [
     { name: "Heros", href: "/en/templates/heros/" },
     { name: "Sections", href: "/en/templates/sections/" },
     { name: "Footers", href: "/en/templates/footers/" },
+    { name: "Navbars", href: "/en/templates/navbars/" },
   ].map((link) => ({
     ...link,
     active: pathname === link.href,

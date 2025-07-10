@@ -59,7 +59,7 @@ const DottedBackground = () => (
 );
 
 
-export const SectionFeatures = () => {
+export const SectionTypeFeatures = () => {
   return (
     <section
       id="features"
@@ -67,10 +67,8 @@ export const SectionFeatures = () => {
     >
       <DottedBackground />
       <div className="container mx-auto px-6">
-        {/* --- Intestazione della Sezione --- */}
         <div className="max-w-3xl mx-auto text-center mb-16 lg:mb-20">
           <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            {/* Il testo viene prelevato direttamente dalla variabile `content` */}
             {content.title}
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg leading-relaxed text-muted-foreground">

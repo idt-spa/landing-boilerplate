@@ -1,14 +1,14 @@
-import HeroPage from "@/components/pages/HeroPage";
+import NavbarPage from "@/components/pages/NavbarPage";
 
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "it" }];
 }
 
-export default function HerosPage() {
+export default function NavbarsPage() {
 
   return (
     <>
-      <HeroPage />
+      <NavbarPage />
     </>
   );
 }

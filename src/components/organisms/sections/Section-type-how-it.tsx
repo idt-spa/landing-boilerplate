@@ -68,7 +68,7 @@ const StepConnector = () => (
   </div>
 );
 
-export const SectionHowIt = () => {
+export const SectionTypeHowIt = () => {
   return (
     <section id="how-it-works" className="w-full py-24 sm:py-32 bg-background">
       <div className="container mx-auto px-6">

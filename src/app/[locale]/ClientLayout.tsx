@@ -2,11 +2,10 @@
 
 import { ReactNode, Suspense } from "react";
 import { NextIntlClientProvider, AbstractIntlMessages } from "next-intl";
-import { Navbar } from "@/components/organisms/Navbar";
-import FooterTypeOne from "@/components/organisms/footers/Footer-type-one";
 // import { AlertProvider } from "@/components/utils/AlertProvider";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { ClickIDTracker } from "@/components/utils/ClickIDTracker";
+import { NavbarTypeOne } from "@/components/organisms/navbars/Navbar-type-one";
 
 type Props = {
   children: ReactNode;
@@ -27,6 +26,7 @@ export function ClientLayout({ children, messages, locale }: Props) {
       <Suspense fallback={null}>
         <ClickIDTracker />
       </Suspense>
+      <NavbarTypeOne />
       <div className="relative z-10 flex min-h-screen flex-col">
         <main className="flex-1">{children}</main>
       </div>
