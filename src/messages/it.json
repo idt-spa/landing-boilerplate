@@ -1,4 +1,8 @@
 {
+  "metadata": {
+    "title": "Landing Boilerplate",
+    "description": "Landing Boilerplate"
+  },
   "home": {
     "title": "Benvenuto",
     "description": "Questo è un sito statico multilingua."
