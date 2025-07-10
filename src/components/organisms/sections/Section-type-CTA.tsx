@@ -10,7 +10,7 @@ export const SectionTypeCTA = () => {
             Contact us today to learn more about how our digital marketing
             services can help your business grow and succeed online.
           </p>
-          <button className="px-9 py-5 dark:bg-white bg-[#191a23] rounded-2xl   text-center dark:text-[#191a23] text-white text-xl font-normal font-['Space_Grotesk'] leading-7">
+          <button className="cursor-pointer px-9 py-5 dark:bg-white bg-[#191a23] rounded-2xl   text-center dark:text-[#191a23] text-white text-xl font-normal font-['Space_Grotesk'] leading-7">
             Get your free proposal
           </button>
         </div>
