@@ -57,6 +57,7 @@ export default function CardTypeOne({
             viewBox="0 0 41 41"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="rotate-56 hover:rotate-0 transition"
           >
             <circle cx="20.5" cy="20.5" r="20.5" fill={iconBg}></circle>
             <path
@@ -73,7 +74,7 @@ export default function CardTypeOne({
         </Link>
       </div>
 
-      <div className="relative w-[200px] h-[200px] flex-shrink-0">
+      <div className="relative w-[150px] h-[150px] flex-shrink-0 mb-10 lg:mr-4">
         <Image
           src={image}
           alt="Card visual"
