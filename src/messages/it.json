@@ -9,5 +9,11 @@
   },
   "pageID": {
     "title": "page ID IT"
+  },
+  "Alert": {
+    "success": "Successo",
+    "error": "Errore",
+    "successMessage": "L'operazione è stata completata con successo!",
+    "errorMessage": "Qualcosa è andato storto, per favore riprova."
   }
 }
