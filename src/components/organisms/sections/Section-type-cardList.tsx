@@ -1,6 +1,6 @@
 import CardTypeOne from "@/components/molecules/cards/Card-type-one";
 
-export default function SectionTypeCardList() {
+export const SectionTypeCardList = () => {
   const cards = [
     {
       title: ["Search engine", "optimization"],

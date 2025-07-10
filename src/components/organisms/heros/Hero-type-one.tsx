@@ -9,7 +9,7 @@ const heroContent = {
   cta: "Book a consultation",
 };
 
-export default function HeroTypeOne() {
+export const HeroTypeOne = () => {
   return (
     <div className="w-full bg-[#F9F9F9] dark:bg-gray-800">
       <section className="px-8 lg:px-16 py-20 max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
