@@ -29,7 +29,7 @@ const heroContent = {
   ],
 };
 
-export default function HeroTypeThree() {
+export const HeroTypeThree = () => {
   return (
     <section className="relative">
       <img

@@ -1,4 +1,4 @@
-export default function SectionTypeSteps() {
+export const SectionTypeSteps = () => {
   return (
     <>
       <section className="max-w-[1440px] mx-auto pb-10 pt-12 px-5 sm:px-8 font-['Space_Grotesk']">
@@ -11,7 +11,7 @@ export default function SectionTypeSteps() {
             Your Business Goals
           </p>
         </div>
-        <div className="mx-auto max-w-7xl px-8 sm:px-16 py-6 sm:py-10 bg-[#b9ff66] rounded-[45px] shadow-[0px_5px_0px_0px_rgba(25,26,35,1.00)] outline outline-1 outline-offset-[-1px] outline-[#191a23] flex flex-col justify-start items-start gap-7 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-8 sm:px-16 py-6 sm:py-10 bg-[#b9ff66] rounded-[45px] shadow-[0px_5px_0px_0px_rgba(25,26,35,1.00)] outline outline-offset-[-1px] outline-[#191a23] flex flex-col justify-start items-start gap-7 overflow-hidden">
           <header className="w-full inline-flex justify-between items-center overflow-hidden">
             <h2 className="flex items-center gap-4 sm:gap-6 text-black font-medium">
               <span className="text-4xl sm:text-6xl">01</span>
@@ -41,7 +41,7 @@ export default function SectionTypeSteps() {
             best fit your requirements.
           </p>
         </div>
-        <div className="mx-auto mt-7 max-w-7xl px-8 sm:px-16 py-6 sm:py-10 bg-white rounded-[45px] shadow-[0px_5px_0px_0px_rgba(25,26,35,1.00)] outline outline-1 outline-offset-[-1px] outline-[#191a23] flex flex-col justify-start items-start gap-7 overflow-hidden">
+        <div className="mx-auto mt-7 max-w-7xl px-8 sm:px-16 py-6 sm:py-10 bg-white rounded-[45px] shadow-[0px_5px_0px_0px_rgba(25,26,35,1.00)] outline outline-offset-[-1px] outline-[#191a23] flex flex-col justify-start items-start gap-7 overflow-hidden">
           <header className="w-full inline-flex justify-between items-center overflow-hidden">
             <h2 className="flex items-center gap-4 sm:gap-6 text-black font-medium">
               <span className="text-4xl sm:text-6xl">02</span>
@@ -67,7 +67,7 @@ export default function SectionTypeSteps() {
             </svg>
           </header>
         </div>
-        <div className="mx-auto mt-7 max-w-7xl px-8 sm:px-16 py-6 sm:py-10 bg-white rounded-[45px] shadow-[0px_5px_0px_0px_rgba(25,26,35,1.00)] outline outline-1 outline-offset-[-1px] outline-[#191a23] flex flex-col justify-start items-start gap-7 overflow-hidden">
+        <div className="mx-auto mt-7 max-w-7xl px-8 sm:px-16 py-6 sm:py-10 bg-white rounded-[45px] shadow-[0px_5px_0px_0px_rgba(25,26,35,1.00)] outline outline-offset-[-1px] outline-[#191a23] flex flex-col justify-start items-start gap-7 overflow-hidden">
           <header className="w-full inline-flex justify-between items-center overflow-hidden">
             <h2 className="flex items-center gap-4 sm:gap-6 text-black font-medium">
               <span className="text-4xl sm:text-6xl">03</span>

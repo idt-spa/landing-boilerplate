@@ -13,7 +13,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
-export default function NavbarTypeOne() {
+export const NavbarTypeOne = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false); // 👈 stato per il drawer
 
@@ -39,9 +39,7 @@ export default function NavbarTypeOne() {
           <div className="lg:hidden">
             <Drawer direction={"left"} open={open} onOpenChange={setOpen}>
               <DrawerTrigger asChild>
-                <button
-                  className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                >
+                <button className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
                   <Menu className="h-6 w-6" />
                 </button>
               </DrawerTrigger>

@@ -17,7 +17,7 @@ const footerContent = {
   privacyPolicy: "Privacy Policy",
 };
 
-export default function FooterTypeOne() {
+export const FooterTypeOne = () => {
   return (
     <section className="bg-[#191a23] rounded-tl-[45px] rounded-tr-[45px]">
       <footer className="w-full mt-10 md:px-[50px] lg:px-24 sm:px-16 px-6 py-14 max-w-[1440px] mx-auto">

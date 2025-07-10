@@ -1,4 +1,4 @@
-export default function SectionTypeCTA() {
+export const SectionTypeCTA = () => {
   return (
     <section className="dark:bg-gray-800 bg-[#F9F9F9]">
       <div className="max-w-[1440px]  mx-auto flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0 px-8 lg:px-16 py-10">
