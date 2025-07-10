@@ -28,9 +28,7 @@ export function ClientLayout({ children, messages, locale }: Props) {
         <ClickIDTracker />
       </Suspense>
       <div className="relative z-10 flex min-h-screen flex-col">
-        <Navbar />
         <main className="flex-1">{children}</main>
-        <FooterTypeOne />
       </div>
     </NextIntlClientProvider>
   );
