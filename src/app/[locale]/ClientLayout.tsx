@@ -6,6 +6,7 @@ import { NextIntlClientProvider, AbstractIntlMessages } from "next-intl";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { ClickIDTracker } from "@/components/utils/ClickIDTracker";
 import { NavbarTypeOne } from "@/components/organisms/navbars/Navbar-type-one";
+import { AlertProvider } from "@/components/utils/AlertProvider";
 
 type Props = {
   children: ReactNode;
@@ -21,7 +22,7 @@ export function ClientLayout({ children, messages, locale }: Props) {
       messages={messages}
       timeZone={timeZone}
     >
-      {/*TODO add AlertProvider*/}
+      <AlertProvider>
       <GoogleTagManager gtmId="GTM-XXXXXXX" />
       <Suspense fallback={null}>
         <ClickIDTracker />
@@ -30,6 +31,7 @@ export function ClientLayout({ children, messages, locale }: Props) {
       <div className="relative z-10 flex min-h-screen flex-col">
         <main className="flex-1">{children}</main>
       </div>
+      </AlertProvider>
     </NextIntlClientProvider>
   );
 }
