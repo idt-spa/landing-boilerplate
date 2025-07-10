@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useParams, usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 import {
   Drawer,
@@ -12,11 +12,50 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import DropdownSelect from "@/components/molecules/DropdownSelect";
+import { ToggleSwitch } from "@/components/molecules/ToggleSwitch";
 
 export const NavbarTypeOne = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const router = useRouter();
+  const params = useParams();
+  const locale = params?.locale as string;
 
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+      document.documentElement.classList.add("dark");
+      setIsDark(true);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = isDark ? "light" : "dark";
+    document.documentElement.classList.toggle("dark", !isDark);
+    localStorage.setItem("theme", nextTheme);
+    setIsDark(!isDark);
+  };
+
+  const handleLanguageSelect = (lang: string) => {
+    const currentPath = window.location.pathname;
+    const pathSegments = currentPath.split("/");
+
+    if (["it", "en"].includes(pathSegments[1])) {
+      pathSegments[1] = lang.toLowerCase();
+    } else {
+      pathSegments.splice(1, 0, lang);
+    }
+
+    const newPath = pathSegments.join("/");
+    console.log("Navigating to:", newPath);
+    router.push(newPath);
+  };
   const navLinks = [
     { name: "Heros", href: "/en/templates/heros/" },
     { name: "Sections", href: "/en/templates/sections/" },
@@ -76,7 +115,7 @@ export const NavbarTypeOne = () => {
           </div>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-4">
             {navLinks.map((link, idx) => (
               <Link
                 key={idx}
@@ -90,7 +129,12 @@ export const NavbarTypeOne = () => {
                 {link.name}
               </Link>
             ))}
-
+            <DropdownSelect
+              label={locale.toUpperCase()} // Mostra la lingua corrente
+              items={["IT", "EN",]}
+              onItemSelect={handleLanguageSelect}
+            />
+            <ToggleSwitch checked={isDark} onChange={toggleTheme} />
             <Link
               href="https://themesberg.com/product/tailwind-css/landing-page"
               className="text-white bg-zinc-800 hover:bg-white hover:text-zinc-800 border focus:ring-4 font-medium rounded-lg text-sm px-4 py-2 focus:outline-none"
