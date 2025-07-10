@@ -4,9 +4,9 @@ import { ReactNode, Suspense } from "react";
 import { NextIntlClientProvider, AbstractIntlMessages } from "next-intl";
 import { Navbar } from "@/components/organisms/Navbar";
 import FooterTypeOne from "@/components/organisms/footers/Footer-type-one";
-// import { AlertProvider } from "@/components/utils/AlertProvider";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { ClickIDTracker } from "@/components/utils/ClickIDTracker";
+import { AlertProvider } from "@/components/utils/AlertProvider";
 
 type Props = {
   children: ReactNode;
@@ -22,14 +22,15 @@ export function ClientLayout({ children, messages, locale }: Props) {
       messages={messages}
       timeZone={timeZone}
     >
-      {/*TODO add AlertProvider*/}
-      <GoogleTagManager gtmId="GTM-XXXXXXX" />
-      <Suspense fallback={null}>
-        <ClickIDTracker />
-      </Suspense>
-      <div className="relative z-10 flex min-h-screen flex-col">
-        <main className="flex-1">{children}</main>
-      </div>
+      <AlertProvider>
+        <GoogleTagManager gtmId="GTM-XXXXXXX" />
+        <Suspense fallback={null}>
+          <ClickIDTracker />
+        </Suspense>
+        <div className="relative z-10 flex min-h-screen flex-col">
+          <main className="flex-1">{children}</main>
+        </div>
+      </AlertProvider>
     </NextIntlClientProvider>
   );
 }
